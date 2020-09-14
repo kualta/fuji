@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Tite Text
   m_EditorClassIdentifier: 
-  hashCode: -769792557
+  hashCode: 374809905
   material: {fileID: -1237275822433651271}
   materialHashCode: 738628728
   m_Version: 1.1.0
