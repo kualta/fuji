@@ -57,3 +57,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42d25153c2d48b909b5542935aac24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelNumber: 1
+  levelImages:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 2451b6484882fb364b97322f3d22279f, type: 3}
+  - {fileID: 21300000, guid: ab9ff652b9e0e0fb79a2d065f3ef10e3, type: 3}
+  - {fileID: 21300000, guid: c6279f46eb2dc4ba29c0a249e68ebe5a, type: 3}
+  - {fileID: 21300000, guid: da48e2a047e7a37cd96b2b30d5680e9f, type: 3}
+  - {fileID: 21300000, guid: 02e75978879784392913ad50a1d85f8f, type: 3}
+  - {fileID: 21300000, guid: a588db4dc08aee402af5c60d8e585a48, type: 3}
+  - {fileID: 21300000, guid: e72326cb6334dbdcca48e9f72b4ccb7d, type: 3}
+  - {fileID: 0}
