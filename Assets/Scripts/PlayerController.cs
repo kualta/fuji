@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameController gameController;
+
     public enum STATE {
         FLYING,
         STICKED
@@ -17,7 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         moveDirection = Vector3.zero;
         currentState = STATE.STICKED;
-        speed = 1f;
+        speed = gameController.levelNumber;
     }
 
     void Update()
@@ -32,14 +34,19 @@ public class PlayerController : MonoBehaviour
     }
 
     void Move(Vector3 moveDir) {
-        if (moveDir != Vector3.zero) {
-            transform.Translate(moveDir.normalized * Time.deltaTime * speed);
+        if (currentState == STATE.FLYING) {
+            transform.Translate(moveDir.normalized * Time.deltaTime * speed * 3f, Space.World);
+        } else if (currentState == STATE.STICKED) {
+            transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World); 
         }
     }
 
     void HandleSwipe(Vector2 swipe) {
+        Debug.DrawLine(transform.position, new Vector3(swipe.x, swipe.y, 0f)); 
         if (currentState == STATE.STICKED) {
             moveDirection = new Vector3(swipe.x, swipe.y, 0f);
+           // gameObject.GetComponent<FixedJoint2D>().connectedBody = new Rigidbody2D();
+           // gameObject.GetComponent<FixedJoint2D>().autoConfigureConnectedAnchor = true;
             ChangeState(STATE.FLYING);
         }
     }
@@ -60,8 +67,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision) {
-        Debug.Log("Collision");
+    void OnCollisionEnter2D(Collision2D collision) {
+       // FixedJoint2D joint;
+       // joint = gameObject.GetComponent<FixedJoint2D>();
+       // joint.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
+       // joint.autoConfigureConnectedAnchor = false;
         ChangeState(STATE.STICKED);
+        moveDirection = Vector3.zero;
     }
 }
