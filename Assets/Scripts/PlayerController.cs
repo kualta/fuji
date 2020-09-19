@@ -67,12 +67,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Stick() {
+        ChangeState(STATE.STICKED);
+        moveDirection = Vector3.zero;
+        collisionFramesCount = 0;
+    }
+
+    int collisionFramesCount;
     void OnCollisionEnter2D(Collision2D collision) {
        // FixedJoint2D joint;
        // joint = gameObject.GetComponent<FixedJoint2D>();
        // joint.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
        // joint.autoConfigureConnectedAnchor = false;
-        ChangeState(STATE.STICKED);
-        moveDirection = Vector3.zero;
+        Stick();
+    }
+
+    void OnCollisionStay2D(Collision2D collision) {
+        collisionFramesCount++;
+        Debug.Log(collisionFramesCount);
+        if (collisionFramesCount > 20) {
+            Stick();
+        }
     }
 }
