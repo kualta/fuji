@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public Sprite[] levelImages;
 
     public static GameController Instance;
+    public LevelController levelController;
      
 
     public void OnCredits() {
@@ -37,6 +38,7 @@ public class GameController : MonoBehaviour
     }
 
     public void OnPlay() {
+        levelController.LoadLevelAssets();
         SceneManager.LoadScene("Level");
     }
 

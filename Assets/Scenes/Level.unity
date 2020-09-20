@@ -784,9 +784,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 6261191305621154290, guid: 3c712f38d7b4bb935976ee46a6391a87, type: 3}
-  firstPlatform: {fileID: 0}
+  firstPlatform: {fileID: 1503624890723988879}
   platform: {fileID: 6236862291179676597, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
-  background: {fileID: 0}
+  background: {fileID: 397093653}
   player: {fileID: 0}
   canvas: {fileID: 1935257079}
   victorySign: {fileID: 1208543920}
@@ -1503,6 +1503,11 @@ MonoBehaviour:
   m_padding: 6.2089996
   m_TextComponent: {fileID: 1295337724}
   m_materialReferenceIndex: 1
+--- !u!1 &1503624890723988879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3629725811945097180, guid: 8708d8b81f8c930c795214acd273074b, type: 3}
+  m_PrefabInstance: {fileID: 2774941648143266387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2774941648143266387
 PrefabInstance:
   m_ObjectHideFlags: 0

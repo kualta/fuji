@@ -60,7 +60,15 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
     }
 
-    void HandleSwipe(Vector2 swipe) {
+    void HandleSwipe(Vector2 rawSwipe) {
+        Vector2 swipe = new Vector2();
+        if (rawSwipe.y > 0) {
+            swipe = new Vector2(rawSwipe.x, 200f);
+        }
+        else if (rawSwipe.y <= 0) {
+            swipe = new Vector2(rawSwipe.x, -200f);
+        }
+
         Debug.DrawLine(transform.position, new Vector3(swipe.x, swipe.y, 0f)); 
         if (currentState == STATE.STICKED) {
             moveDirection = new Vector3(swipe.x, swipe.y, 0f).normalized;
@@ -78,9 +86,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0)) {
             endPosition = Input.mousePosition;
-            Vector2 swipe = endPosition - startPosition;
+            Vector2 rawSwipe = endPosition - startPosition;
 
-            HandleSwipe(swipe);
+            HandleSwipe(rawSwipe);
         }
     }
 

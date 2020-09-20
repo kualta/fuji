@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7a35c684d463ac4188c645b1730966b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1722146a7e0a4ab36ab5f0ed1012dd36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 6261191305621154290, guid: 3c712f38d7b4bb935976ee46a6391a87, type: 3}
+  levelController: {fileID: 0}
   initialPlatform: 0
 --- !u!1 &6236862291633987298
 GameObject:
@@ -251,7 +252,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 48e2cf9419a68f908b973d26929b5ee2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1722146a7e0a4ab36ab5f0ed1012dd36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

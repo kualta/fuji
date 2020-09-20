@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42d25153c2d48b909b5542935aac24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNumber: 1
+  levelNumber: 3
   levelImages:
   - {fileID: 0}
   - {fileID: 21300000, guid: 2451b6484882fb364b97322f3d22279f, type: 3}
@@ -68,3 +68,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a588db4dc08aee402af5c60d8e585a48, type: 3}
   - {fileID: 21300000, guid: e72326cb6334dbdcca48e9f72b4ccb7d, type: 3}
   - {fileID: 0}
+  levelController: {fileID: 7712122473185375434, guid: 99da63f1d3ce5f271a574c9be463ae1e, type: 3}

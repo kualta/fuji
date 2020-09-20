@@ -23,12 +23,15 @@ public class LevelController : MonoBehaviour
     // TODO: Add moving background
     //
 
+    public void SpawnPlatform() {
+        Instantiate(platform, new Vector3(0f, -7f, 0f), Quaternion.identity);
+    }
+
     void Awake() {
         LoadLevelAssets();
     }
 
     void Start() {
-        StartCoroutine(SpawnPlatform());
         player = GameObject.Find("Player");
     }
 
@@ -39,6 +42,11 @@ public class LevelController : MonoBehaviour
     public float deathDistance = 2.6f;
 
     void CheckPlayerPosition() {
+
+        if ( player == null ) {
+            return;
+        }
+
         if (player.transform.position.x > deathDistance || player.transform.position.x < -deathDistance) {
             OnDeath();
         } 
@@ -50,8 +58,18 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    void LoadLevelAssets() {
+    public void LoadLevelAssets() {
+        var bgImage = Resources.Load<Sprite>("Textures/Backgrounds/Level" + gameController.levelNumber + "BG");
+        background.GetComponent<SpriteRenderer>().sprite = bgImage; 
 
+        var firstPlatformImage = Resources.Load<Sprite>("Textures/Platforms/Level" + gameController.levelNumber + "/first_platform");
+        firstPlatform.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = firstPlatformImage; 
+
+        var leftPlatformImage = Resources.Load<Sprite>("Textures/Platforms/Level" + gameController.levelNumber + "/Platform_left");
+        platform.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = leftPlatformImage; 
+ 
+        var rightPlatformImage = Resources.Load<Sprite>("Textures/Platforms/Level" + gameController.levelNumber + "/Platform_right");
+        platform.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = leftPlatformImage; 
     }
 
     void OnDeath() {
@@ -64,13 +82,5 @@ public class LevelController : MonoBehaviour
         canvas.SetActive(true); 
         Destroy(player);
         victorySign.SetActive(true);        
-    }
-
-
-    IEnumerator SpawnPlatform() {
-        Instantiate(platform, new Vector3(0f, -7f, 0f), Quaternion.identity);
-
-        yield return new WaitForSeconds(2 / gameController.levelNumber);
-        StartCoroutine(SpawnPlatform());
     }
 }
