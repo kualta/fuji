@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4767050488412122551, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6236862291179676596, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -177,6 +181,14 @@ PrefabInstance:
     - target: {fileID: 6236862291179676597, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236862291179676597, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236862291633987298, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
@@ -279,7 +291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102344484}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: -1.46, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -301,6 +313,9 @@ MonoBehaviour:
   currentState: 1
   moveDirection: {x: 0, y: 0, z: 0}
   speed: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!61 &102344489
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -314,7 +329,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.04}
+  m_Offset: {x: 0, y: -0.03}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -325,7 +340,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38, y: 0.38}
+  m_Size: {x: 0.29, y: 0.29}
   m_EdgeRadius: 0
 --- !u!50 &102344490
 Rigidbody2D:
@@ -358,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 397093655}
   - component: {fileID: 397093654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,6 +452,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4767050488412122551, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6236862291179676596, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -484,6 +503,14 @@ PrefabInstance:
     - target: {fileID: 6236862291179676597, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
       propertyPath: m_Name
       value: Platform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236862291179676597, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236862291633987298, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
@@ -539,6 +566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4767050488412122551, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6236862291179676596, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -586,6 +617,14 @@ PrefabInstance:
     - target: {fileID: 6236862291179676597, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
       propertyPath: m_Name
       value: Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236862291179676597, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236862291633987298, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
@@ -679,6 +718,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4767050488412122551, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6236862291179676596, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -726,6 +769,14 @@ PrefabInstance:
     - target: {fileID: 6236862291179676597, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
       propertyPath: m_Name
       value: Platform (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236862291179676597, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236862291633987298, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecb8b51e0e5a697abb5cbfd675f8b414, type: 3}
@@ -806,7 +857,7 @@ GameObject:
   - component: {fileID: 1503624890205178069}
   - component: {fileID: 7652998545981320237}
   - component: {fileID: 7550414965083591656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1503624890723988878}
   - component: {fileID: 1503624890723988877}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

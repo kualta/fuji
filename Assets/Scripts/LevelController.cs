@@ -7,6 +7,10 @@ public class LevelController : MonoBehaviour
     public GameController gameController;
     public GameObject platform;
 
+    //
+    // TODO: Add moving background
+    //
+
     void Start() {
         StartCoroutine(SpawnPlatform());
     }
