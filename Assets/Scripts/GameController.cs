@@ -36,14 +36,18 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void OnPlay() {
+        SceneManager.LoadScene("Level");
+    }
+
     public void UpdateLevelButton(int number) {
-        Image levelButtonImage = GameObject.Find("Level").GetComponent<Image>();
+        Image levelButtonImage = GameObject.Find("Level Button").GetComponent<Image>();
 
         levelButtonImage.sprite = levelImages[number];
     }
 
     public void UpdateLevelButton() {
-        Image levelButtonImage = GameObject.Find("Level").GetComponent<Image>();
+        Image levelButtonImage = GameObject.Find("Level Button").GetComponent<Image>();
 
         levelButtonImage.sprite = levelImages[levelNumber];
     }
