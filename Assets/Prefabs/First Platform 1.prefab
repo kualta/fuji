@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3629725811761330820}
   - component: {fileID: 3629725811761330822}
-  - component: {fileID: 5527740950111592062}
   - component: {fileID: 5641573074477113787}
   m_Layer: 10
   m_Name: Platform
@@ -84,27 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &5527740950111592062
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3629725811761330827}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!61 &5641573074477113787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,6 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3629725811945097181}
   - component: {fileID: 3629725811945097182}
+  - component: {fileID: 1466677603927738310}
   m_Layer: 10
   m_Name: First Platform 1
   m_TagString: Untagged
@@ -176,4 +155,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 6261191305621154290, guid: 3c712f38d7b4bb935976ee46a6391a87, type: 3}
+  levelController: {fileID: 0}
   initialPlatform: 0
+  rbL: {fileID: 0}
+  rbR: {fileID: 0}
+  speed: 0
+  spawnedAnother: 0
+--- !u!50 &1466677603927738310
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3629725811945097180}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

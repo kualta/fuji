@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    internal Rigidbody2D rigidBody;
+
     public GameController gameController;
 
     public enum STATE {
@@ -29,6 +32,10 @@ public class PlayerController : MonoBehaviour
         LandingCheck(moveDirection);
     }
 
+//    void FixedUpdate() {
+//        lastCollisionFramesCount++;
+//    }
+
     void ChangeState(STATE state) {
         currentState = state;
         Debug.Log("Changed State: " + state);
@@ -36,9 +43,12 @@ public class PlayerController : MonoBehaviour
 
     void Move(Vector3 moveDir) {
         if (currentState == STATE.FLYING) {
-            transform.Translate(moveDir.normalized * Time.deltaTime * speed * 3f, Space.World);
+            //Old implementations
+            //transform.Translate(moveDir.normalized * Time.deltaTime * speed * 3f, Space.World);
+            rigidBody.velocity = moveDir.normalized * speed * 4f;
         } else if (currentState == STATE.STICKED) {
-            transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World); 
+            //transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World); 
+            rigidBody.velocity = Vector3.up * speed;
         }
     }
 
@@ -57,7 +67,7 @@ public class PlayerController : MonoBehaviour
         Vector2 normal = raycast.normal;
         Vector3 targetPosition = new Vector3(normal.x, normal.y, 0f);
         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, targetPosition);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 3.5f);
     }
 
     void HandleSwipe(Vector2 rawSwipe) {
@@ -99,6 +109,8 @@ public class PlayerController : MonoBehaviour
     }
 
     int collisionFramesCount;
+    int lastCollisionFramesCount;
+
     void OnCollisionEnter2D(Collision2D collision) {
         Stick();
 
@@ -108,6 +120,14 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionStay2D(Collision2D collision) {
+      //  Debug.Log(lastCollisionFramesCount);
+
+      //  if (lastCollisionFramesCount <= 3) {
+      //      lastCollisionFramesCount = 0;
+      //      return;
+      //  }
+
+      //  lastCollisionFramesCount = 0;
         collisionFramesCount++;
         if (collisionFramesCount > 20) {
             Stick();

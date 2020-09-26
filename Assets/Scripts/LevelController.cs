@@ -69,7 +69,7 @@ public class LevelController : MonoBehaviour
         platform.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = leftPlatformImage; 
  
         var rightPlatformImage = Resources.Load<Sprite>("Textures/Platforms/Level" + gameController.levelNumber + "/Platform_right");
-        platform.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = leftPlatformImage; 
+        platform.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = rightPlatformImage; 
     }
 
     void OnDeath() {

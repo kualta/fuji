@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
 
     void Awake() {
         Instance = this;
+        Application.targetFrameRate = 120;
         UpdateLevelButton(levelNumber);
     }
 

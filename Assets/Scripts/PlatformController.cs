@@ -9,18 +9,43 @@ public class PlatformController : MonoBehaviour
     public bool initialPlatform;
 
 
+    //
+    // FIXME: Shitty names for rigidbodis, shitty code all put into Start()!
+    // 
+
+    public Rigidbody2D rbL;
+    public Rigidbody2D rbR;
+    public float speed;
+
     void Start() {
+
+        //
+        // FIXME: Shitty spaghetti! refactoring required
+        // 
         levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
         RandomizePosition();
+        speed = gameController.levelNumber;
+        rbL = GetComponent<Rigidbody2D>();
+
+        //
+        // Shitty hack for the first platform, FIXME!
+        //
+        if (transform.childCount > 1) {
+            rbR = GetComponent<Rigidbody2D>();
+            rbR.velocity = Vector2.up * speed;
+        }
+
+        rbL.velocity = Vector2.up * speed;
     }
 
     void Update() {
-        Move();
+        //Move();
         CheckPosition();
     }
 
     void Move() {
-        transform.Translate(Vector3.up * Time.deltaTime * gameController.levelNumber, Space.World);
+        //transform.Translate(Vector3.up * Time.deltaTime * gameController.levelNumber, Space.World);
+        //rbL.MovePosition(Vector3.up * Time.deltaTime * gameController.levelNumber);
     }
 
     void RandomizePosition() {
