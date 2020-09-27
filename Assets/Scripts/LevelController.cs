@@ -18,6 +18,7 @@ public class LevelController : MonoBehaviour
     public GameObject victorySign;
     public GameObject defeatSign;
 
+    public float deathDistance = 2.6f;
 
     //
     // TODO: Add moving background
@@ -33,13 +34,32 @@ public class LevelController : MonoBehaviour
 
     void Start() {
         player = GameObject.Find("Player");
+        SpawnInitialPlatforms();
     }
+
+    void SpawnInitialPlatforms() {
+        float position = 3f;
+
+        GameObject another = Instantiate(firstPlatform, new Vector3(0f, position, 0f), Quaternion.identity);
+        another.GetComponent<PlatformController>().spawnedAnother = true;
+
+        position -= 2f;
+
+        for (int i = 0; i < 4; i++) {
+            another = Instantiate(platform, new Vector3(0f, position, 0f), Quaternion.identity);
+
+            // Disable the spawnedAnother flag for every platform except the last one.
+            if (i != 4) {
+                another.GetComponent<PlatformController>().spawnedAnother = true;
+            }
+            position -= 2f;
+        }
+    }
+
 
     void Update() {
         CheckPlayerPosition();
     }
-
-    public float deathDistance = 2.6f;
 
     void CheckPlayerPosition() {
 

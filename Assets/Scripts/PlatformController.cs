@@ -6,11 +6,9 @@ public class PlatformController : MonoBehaviour
 {
     public GameController gameController;
     public LevelController levelController;
-    public bool initialPlatform;
-
 
     //
-    // FIXME: Shitty names for rigidbodis, shitty code all put into Start()!
+    // FIXME: Bad rigidBodied names!
     // 
 
     public Rigidbody2D rbL;
@@ -20,7 +18,7 @@ public class PlatformController : MonoBehaviour
     void Start() {
 
         //
-        // FIXME: Shitty spaghetti! refactoring required
+        // FIXME: Spaghetti! refactoring required
         // 
         levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
         RandomizePosition();
@@ -28,8 +26,9 @@ public class PlatformController : MonoBehaviour
         rbL = GetComponent<Rigidbody2D>();
 
         //
-        // Shitty hack for the first platform, FIXME!
+        // Hack for the first platform, FIXME!
         //
+
         if (transform.childCount > 1) {
             rbR = GetComponent<Rigidbody2D>();
             rbR.velocity = Vector2.up * speed;
@@ -55,7 +54,7 @@ public class PlatformController : MonoBehaviour
     public bool spawnedAnother = false;
     void CheckPosition() {
 
-        if ( !spawnedAnother && !initialPlatform ) {
+        if ( !spawnedAnother ) {
             if (transform.position.y > -4.6) {
                 levelController.SpawnPlatform();
                 spawnedAnother = true;
