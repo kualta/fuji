@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
 {
     public int levelNumber;
     public Sprite[] levelImages;
+    public Sprite[] leftArrowImages;
+    public Sprite[] rightArrowImages;
 
     public static GameController Instance;
     public LevelController levelController;
@@ -21,20 +23,30 @@ public class GameController : MonoBehaviour
         if (levelNumber < 7) {
             levelNumber++;
         }
-        UpdateLevelButton(levelNumber);
-        Debug.Log(levelNumber);
+        UpdateLevelButton();
+        UpdateArrowButtons();
     }
 
     public void OnPreviousLevel() {
         if (levelNumber > 1) {
             levelNumber--;
         }
-        UpdateLevelButton(levelNumber);
-        Debug.Log(levelNumber);
+        UpdateLevelButton();
+        UpdateArrowButtons();
     }
 
     public void OnMenu() {
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void OnSiteOpen() {
+        Application.OpenURL("https://lectro.moe");
+        Debug.Log("Opening URL: https://lectro.moe");
+    }
+
+    public void OnTwitterOpen() {
+        Application.OpenURL("https://twitter.com/lectroMathew");
+        Debug.Log("Opening URL: https://twitter.com/lectroMathew");
     }
 
     public void OnPlay() {
@@ -42,26 +54,24 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Level");
     }
 
-    public void UpdateLevelButton(int number) {
-        Image levelButtonImage = GameObject.Find("Level Button").GetComponent<Image>();
-
-        levelButtonImage.sprite = levelImages[number];
-    }
-
     public void UpdateLevelButton() {
         Image levelButtonImage = GameObject.Find("Level Button").GetComponent<Image>();
-
         levelButtonImage.sprite = levelImages[levelNumber];
     }
 
-    void Start() {
-        LoadLastLevel();
+    public void UpdateArrowButtons() {
+        Image leftArrowButtonImage = GameObject.Find("Left Button").GetComponent<Image>();
+        leftArrowButtonImage.sprite = leftArrowImages[levelNumber];
+
+        Image rightArrowButtonImage = GameObject.Find("Right Button").GetComponent<Image>();
+        rightArrowButtonImage.sprite = rightArrowImages[levelNumber];
     }
 
     void Awake() {
         Instance = this;
         Application.targetFrameRate = 120;
-        UpdateLevelButton(levelNumber);
+        UpdateLevelButton();
+        UpdateArrowButtons();
     }
 
     internal void LoadLastLevel() {

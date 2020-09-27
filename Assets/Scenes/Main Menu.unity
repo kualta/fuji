@@ -648,8 +648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -57.95999}
-  m_SizeDelta: {x: 179.75778, y: 20.904816}
+  m_AnchoredPosition: {x: 0.0000019073, y: -57.958}
+  m_SizeDelta: {x: 322.18854, y: 29.888035}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1063773874
 MonoBehaviour:
@@ -701,10 +701,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14.6
-  m_fontSizeBase: 34
+  m_fontSize: 14.5
+  m_fontSizeBase: 14.5
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 9
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: -16
-  m_wordSpacing: -64.67
+  m_wordSpacing: -25
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -779,6 +779,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33511c34ac37e8e0c95610585b76e848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Quotes:
+  - There's no plot!
+  - Made by lectroMathew!
+  - Get in the robot, Shinji!
+  - Level 7 was made for you
+  - 95% bug free!
+  - It's breathtaking!
+  - Use VPN on Public WiFi!
+  - Upgrades, people, upgrades
+  textMesh: {fileID: 1063773874}
 --- !u!1 &1251129791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,7 +1165,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

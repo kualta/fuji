@@ -8,5 +8,6 @@ public class UpdateImageOnAwake : MonoBehaviour
 
     void Awake() {
         gameController.UpdateLevelButton();
+        gameController.UpdateArrowButtons();
     }
 }
