@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d5ed8005335d427db2ebe6a249eedc8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7a35c684d463ac4188c645b1730966b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -179,7 +179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 6261191305621154290, guid: 3c712f38d7b4bb935976ee46a6391a87, type: 3}
   levelController: {fileID: 0}
-  initialPlatform: 0
   rbL: {fileID: 0}
   rbR: {fileID: 0}
   speed: 0
@@ -277,7 +276,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 677a4cfc0f4859edc8dac1132e0189ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48e2cf9419a68f908b973d26929b5ee2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

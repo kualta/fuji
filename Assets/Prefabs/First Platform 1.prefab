@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d7dc647e40a50939ab48343f9eca83e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 356b5634af41aa9e583914cc7bc20cff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -156,7 +156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 6261191305621154290, guid: 3c712f38d7b4bb935976ee46a6391a87, type: 3}
   levelController: {fileID: 0}
-  initialPlatform: 0
   rbL: {fileID: 0}
   rbR: {fileID: 0}
   speed: 0

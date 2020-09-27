@@ -49,7 +49,7 @@ public class LevelController : MonoBehaviour
             another = Instantiate(platform, new Vector3(0f, position, 0f), Quaternion.identity);
 
             // Disable the spawnedAnother flag for every platform except the last one.
-            if (i != 4) {
+            if (i != 3) {
                 another.GetComponent<PlatformController>().spawnedAnother = true;
             }
             position -= 2f;
