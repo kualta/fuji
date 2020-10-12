@@ -20,12 +20,12 @@ public class LevelController : MonoBehaviour
 
     public float deathDistance = 2.6f;
 
-    //
-    // TODO: Add moving background
-    //
-
     public void SpawnPlatform() {
         Instantiate(platform, new Vector3(0f, -7f, 0f), Quaternion.identity);
+    }
+
+    public GameObject SpawnPlatform(float yPosition, GameObject platformType) {
+        return Instantiate(platformType, new Vector3(0f, yPosition, 0f), Quaternion.identity);
     }
 
     void Awake() {
@@ -33,27 +33,29 @@ public class LevelController : MonoBehaviour
     }
 
     void Start() {
-        player = GameObject.Find("Player");
+        Init();
         SpawnInitialPlatforms();
     }
 
     void SpawnInitialPlatforms() {
-        float position = 3f;
 
-        GameObject another = Instantiate(firstPlatform, new Vector3(0f, position, 0f), Quaternion.identity);
-        another.GetComponent<PlatformController>().spawnedAnother = true;
+        SpawnFirstPlatform(yPosition: 3f);
 
-        position -= 2f;
-
+        float position = 1f;
         for (int i = 0; i < 4; i++) {
-            another = Instantiate(platform, new Vector3(0f, position, 0f), Quaternion.identity);
+            GameObject newPlatform = SpawnPlatform(position, platform);
 
             // Disable the spawnedAnother flag for every platform except the last one.
             if (i != 3) {
-                another.GetComponent<PlatformController>().spawnedAnother = true;
+                newPlatform.GetComponent<PlatformController>().spawnedAnother = true;
             }
             position -= 2f;
         }
+    }
+
+    private void SpawnFirstPlatform(float yPosition) {
+        GameObject newPlatform = SpawnPlatform(yPosition, firstPlatform);
+        newPlatform.GetComponent<PlatformController>().spawnedAnother = true;
     }
 
 
@@ -102,5 +104,12 @@ public class LevelController : MonoBehaviour
         canvas.SetActive(true); 
         Destroy(player);
         victorySign.SetActive(true);        
+    }
+
+    private void Init() {
+        player = GameObject.Find("Player");
+        if ( !player ) {
+            Debug.Log("No player object found!");
+        }
     }
 }

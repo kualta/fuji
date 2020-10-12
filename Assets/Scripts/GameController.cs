@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public int levelNumber;
+
     public Sprite[] levelImages;
     public Sprite[] leftArrowImages;
     public Sprite[] rightArrowImages;
@@ -70,15 +71,8 @@ public class GameController : MonoBehaviour
     void Awake() {
         Instance = this;
         Application.targetFrameRate = 120;
+
         UpdateLevelButton();
         UpdateArrowButtons();
-    }
-
-    internal void LoadLastLevel() {
-
-        // FIXME: This is not an expected behaviour.
-        // A real implementation is needed.
-
-        levelNumber = 1;
     }
 }
