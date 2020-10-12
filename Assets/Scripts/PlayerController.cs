@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public STATE currentState;
+
     public Vector3 moveDirection;
+
     public float speed;
 
     void Start()
@@ -32,10 +34,6 @@ public class PlayerController : MonoBehaviour
         LandingCheck(moveDirection);
     }
 
-//    void FixedUpdate() {
-//        lastCollisionFramesCount++;
-//    }
-
     void ChangeState(STATE state) {
         currentState = state;
         Debug.Log("Changed State: " + state);
@@ -43,11 +41,8 @@ public class PlayerController : MonoBehaviour
 
     void Move(Vector3 moveDir) {
         if (currentState == STATE.FLYING) {
-            //Old implementations
-            //transform.Translate(moveDir.normalized * Time.deltaTime * speed * 3f, Space.World);
             rigidBody.velocity = moveDir.normalized * speed * 4f;
         } else if (currentState == STATE.STICKED) {
-            //transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World); 
             rigidBody.velocity = Vector3.up * speed;
         }
     }
@@ -59,7 +54,11 @@ public class PlayerController : MonoBehaviour
         if (Physics2D.Raycast(origin, rayDirection, 3f, layerMask)) {
             RaycastHit2D hit = Physics2D.Raycast(origin, rayDirection * 3f, 2f, layerMask);
             LandRotate(hit);
-            Debug.DrawRay(transform.position, direction * 2f, Color.red); 
+
+            #if UNITY_EDITOR
+                Debug.DrawRay(transform.position, direction * 2f, Color.red); 
+             #endif 
+
         }
     }
 
@@ -71,23 +70,29 @@ public class PlayerController : MonoBehaviour
     }
 
     void HandleSwipe(Vector2 rawSwipe) {
+        
         Vector2 swipe = new Vector2();
+
+        // We ignore y component of the swipe and add constant 200f
+        // lenght, thus making one-hand play more comfortable.
         if (rawSwipe.y > 0) {
             swipe = new Vector2(rawSwipe.x, 200f);
-        }
-        else if (rawSwipe.y <= 0) {
+        } else if (rawSwipe.y <= 0) {
             swipe = new Vector2(rawSwipe.x, -200f);
         }
 
-        Debug.DrawLine(transform.position, new Vector3(swipe.x, swipe.y, 0f)); 
         if (currentState == STATE.STICKED) {
             moveDirection = new Vector3(swipe.x, swipe.y, 0f).normalized;
             ChangeState(STATE.FLYING);
         }
+
+        #if UNITY_EDITOR
+            Debug.DrawLine(transform.position, new Vector3(swipe.x, swipe.y, 0f)); 
+        #endif
     }
 
-    Vector2 startPosition;
-    Vector2 endPosition;
+    private Vector2 startPosition;
+    private Vector2 endPosition;
 
     void GetInput() {
         if (Input.GetMouseButtonDown(0)) {
@@ -108,26 +113,18 @@ public class PlayerController : MonoBehaviour
         collisionFramesCount = 0;
     }
 
-    int collisionFramesCount;
-    int lastCollisionFramesCount;
+    private int collisionFramesCount;
+    private int lastCollisionFramesCount;
 
     void OnCollisionEnter2D(Collision2D collision) {
-        Stick();
-
         Vector2 contactNormal = collision.GetContact(0).normal;
         Vector3 targetRotation = new Vector3(contactNormal.x, contactNormal.y, 0f);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, targetRotation);
+        
+        Stick();
     }
 
     void OnCollisionStay2D(Collision2D collision) {
-      //  Debug.Log(lastCollisionFramesCount);
-
-      //  if (lastCollisionFramesCount <= 3) {
-      //      lastCollisionFramesCount = 0;
-      //      return;
-      //  }
-
-      //  lastCollisionFramesCount = 0;
         collisionFramesCount++;
         if (collisionFramesCount > 20) {
             Stick();
