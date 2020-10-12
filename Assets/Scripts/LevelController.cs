@@ -24,7 +24,7 @@ public class LevelController : MonoBehaviour
         Instantiate(platform, new Vector3(0f, -7f, 0f), Quaternion.identity);
     }
 
-    public GameObject SpawnPlatform(float yPosition, GameObject platformType) {
+    public GameObject SpawnPlatform(GameObject platformType, float yPosition) {
         return Instantiate(platformType, new Vector3(0f, yPosition, 0f), Quaternion.identity);
     }
 
@@ -37,15 +37,19 @@ public class LevelController : MonoBehaviour
         SpawnInitialPlatforms();
     }
 
+    void Update() {
+        CheckPlayerPosition();
+    }
+
     void SpawnInitialPlatforms() {
 
         SpawnFirstPlatform(yPosition: 3f);
 
         float position = 1f;
         for (int i = 0; i < 4; i++) {
-            GameObject newPlatform = SpawnPlatform(position, platform);
+            GameObject newPlatform = SpawnPlatform(platform, position);
 
-            // Disable the spawnedAnother flag for every platform except the last one.
+            // Enable the spawnedAnother flag for every platform except the last one.
             if (i != 3) {
                 newPlatform.GetComponent<PlatformController>().spawnedAnother = true;
             }
@@ -53,19 +57,15 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    private void SpawnFirstPlatform(float yPosition) {
-        GameObject newPlatform = SpawnPlatform(yPosition, firstPlatform);
+    void SpawnFirstPlatform(float yPosition) {
+        GameObject newPlatform = SpawnPlatform(firstPlatform, yPosition);
         newPlatform.GetComponent<PlatformController>().spawnedAnother = true;
-    }
-
-
-    void Update() {
-        CheckPlayerPosition();
     }
 
     void CheckPlayerPosition() {
 
-        if ( player == null ) {
+        // If player is dead, skip position checking
+        if ( !player ) {
             return;
         }
 
