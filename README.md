@@ -1,11 +1,14 @@
-# Fuji Bot Unity edition
+## Fuji Bot
 
-Fuji Bot is a hardcore hypercasual game for mobile devices.
+**what?**
 
-Originally developed in 2019 with python on Godot Engine 
-Ported to Unity C# in 2020.
+is a hardcore hypercasual mobile game.
 
-Published on Google Play: https://play.google.com/store/apps/details?id=com.lectroMathew.FujiBot
+**how?**
 
-(C) lectroMathew 2019 - 2020 
-https://lectro.moe/
+Originally developed in python on **Godot Engine**, 
+this version is a port to **Unity** C#
+
+**license**
+
+Fuji Bot is licensed under [Apache 2.0](LICENSE) license
